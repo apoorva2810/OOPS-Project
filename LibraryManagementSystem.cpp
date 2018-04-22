@@ -46,13 +46,9 @@ class book
 	
 		cout<<"\n\nEnter The Author's Name ";
 		gets(aname);
-		//cin>>aname;
 		cout<<"\n\n\nBook Created..";
 		
-		cout<<"-------------------------------------------------------";
-		cout<<"Bno: "<<bno<<endl;
-		cout<<"Bname: "<<bname<<endl;
-		cout<<"Aname: "<<aname<<endl;
+	
 		
 	}
 
@@ -61,20 +57,21 @@ class book
 		cout<<"\nBook no. : "<<bno;
 		cout<<"\nBook Name : ";
 		puts(bname);
-		//cout<<bname;
+		
 		cout<<"Author Name : ";
 		puts(aname);
-		//cout<<aname;
+		
 	}
 
 	void modify_book()
 	{
 		cout<<"\nBook no. : "<<bno;
+		gets(checkErr);
 		cout<<"\nModify Book Name : ";
 		gets(bname);
-		getch();
+		
 		//cin>>bname;
-		cout<<"\nModify Author's Name of Book : ";
+		cout<<"\nModify Author's Name of Book :  ";
 		gets(aname);
 		//cin>>aname;
 	}
@@ -132,6 +129,7 @@ public:
 	void modify_student()
 	{
 		cout<<"\nAdmission no. : "<<admno;
+		gets(checkErr);
 		cout<<"\nModify Student Name : ";
 		gets(name);
 	}
