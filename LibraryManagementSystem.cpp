@@ -37,14 +37,14 @@ class book
 	{
 		cout<<"\nNEW BOOK ENTRY...\n";
 		
-		cout<<"\nEnter The book no.";
+		cout<<"\nEnter The book no.  :";
 		
 		gets(checkErr);
 		gets(bno);
-		cout<<"\n\nEnter The Name of The Book ";
+		cout<<"\n\nEnter The Name of The Book  :";
 		gets(bname);
 	
-		cout<<"\n\nEnter The Author's Name ";
+		cout<<"\n\nEnter The Author's Name  :";
 		gets(aname);
 		cout<<"\n\n\nBook Created..";
 		
@@ -70,10 +70,9 @@ class book
 		cout<<"\nModify Book Name : ";
 		gets(bname);
 		
-		//cin>>bname;
 		cout<<"\nModify Author's Name of Book :  ";
 		gets(aname);
-		//cin>>aname;
+		
 	}
 
 	char* retbno()
@@ -123,7 +122,7 @@ public:
 		cout<<"\n\t\t\t\t\t\t    No of Book issued : "<<token;
 		if(token==1)
 			cout<<"\n\t\t\t\t\t\t    Book No "<<stbno;
-			cout<<"\n";
+			cout<<endl;
 	}
 
 	void modify_student()
@@ -169,7 +168,7 @@ public:
 
 
 //***************************************************************
-//    	global declaration for stream object, object
+//    	global declaration for stream object
 //****************************************************************
 
 fstream fp,fp1;
@@ -271,7 +270,7 @@ void modify_book()
 	int found=0;
 	system("cls");
 	cout<<"\n\n\tMODIFY BOOK REOCORD.... ";
-	cout<<"\n\n\tEnter The book no. of The book";
+	cout<<"\n\n\tEnter The book no. of The book  :";
 	cin>>n;
 	fp.open("book.dat",ios::in|ios::out);
 	while(fp.read((char*)&bk,sizeof(book)) && found==0)
@@ -279,7 +278,7 @@ void modify_book()
 		if(strcmpi(bk.retbno(),n)==0)
 		{
 			bk.show_book();
-			cout<<"\nEnter The New Details of book"<<endl;
+			cout<<"\nEnter The New Details of book  :"<<endl;
 			bk.modify_book();
 			int pos=-1*sizeof(bk);
 		    	fp.seekp(pos,ios::cur);
@@ -302,7 +301,7 @@ void modify_student()
 	int found=0;
 	system("cls");
 	cout<<"\n\n\tMODIFY STUDENT RECORD... ";
-	cout<<"\n\n\tEnter The admission no. of The student";
+	cout<<"\n\n\tEnter The admission no. of The student  :";
 	cin>>n;
 	fp.open("student.dat",ios::in|ios::out);
 	while(fp.read((char*)&st,sizeof(student)) && found==0)
@@ -310,7 +309,7 @@ void modify_student()
 		if(strcmpi(st.retadmno(),n)==0)
 		{
 			st.show_student();
-			cout<<"\nEnter The New Details of student"<<endl;
+			cout<<"\nEnter The New Details of student  :"<<endl;
 			st.modify_student();
 			int pos=-1*sizeof(st);
 			fp.seekp(pos,ios::cur);
@@ -494,7 +493,7 @@ void book_issue()
        						int pos=-1*sizeof(st);
 						fp.seekp(pos,ios::cur);
 						fp.write((char*)&st,sizeof(student));
-						cout<<"\n\n\t\t\t\t  Book issued successfully\n\nPlease Note: Write the current date 						in backside of your book and submit within 15 days fine Rs. 1 for each day 							after 15 days period";
+						cout<<"\n\n\t\t\t\t  Book issued successfully\n\nPlease Note: Write the current date in backside of your book and submit within 15 days fine Rs. 1 for each day after 15 days period";
 					}
 		    		}
 		  		if(flag==0)
@@ -541,7 +540,7 @@ void book_deposit()
 			{
 				bk.show_book();
 				flag=1;
-				cout<<"\n\nBook deposited in no. of days";
+				cout<<"\n\nBook deposited in no. of days  :";
 				cin>>day;
 				if(day>15)
 				{
@@ -556,7 +555,7 @@ void book_deposit()
 			}
 		    }
 		  if(flag==0)
-		    cout<<"Book no does not exist";
+		    cout<<"Book no. does not exist";
 		      }
 		 else
 			cout<<"\n\n\n\n\t\t\t\t\t  No book is issued ...  please check !!!";
@@ -674,7 +673,7 @@ int main()
 	  	cout<<"\n\n\t\t\t\t\t\t    04. EXIT";
 	  	cout<<"\n\n\n\n\t\t\t\t\t\tPlease Select Your Option (1-4) : ";
 
-	  	ch=getche();
+	  	ch=getche();		// getche() doesn't wait for the enter key
 	  	switch(ch)
 	  	{
 			case '1':system("cls");
